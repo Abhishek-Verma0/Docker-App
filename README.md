@@ -35,6 +35,26 @@ To run this application locally without needing Node.js or any local dependencie
 - **App View :**
  ![Terminal](public/Screenshot%20From%202026-04-11%2022-04-33.png)
 
+## EC2 Deployment
 
+- **Live Public URL:** [http://34.206.185.26](http://34.206.185.26)
 
+### Deployment Commands Used
+The following commands were executed sequentially inside the AWS EC2 instance terminal (Ubuntu) to pull and execute the containerized application:
+
+```bash
+sudo apt update -y
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo docker pull contantine/note-app:latest
+sudo docker run -d -p 80:80 --name my-note-app contantine/note-app
+```
+
+### EC2 Screenshots
+
+- **EC2 Terminal Deployment:**
+  ![EC2 Deploy](public/ec2-deployed/Screenshot%20From%202026-04-11%2022-43-56.png)
   
+- **App Live on Public IP:**
+  ![Live App](public/ec2-deployed/Screenshot%20From%202026-04-11%2022-44-14.png)
